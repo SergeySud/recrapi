@@ -5,10 +5,6 @@ from django.shortcuts import render
 from django.views import View
 
 
-def test(request):
-    return HttpResponse('id:')
-
-
 # Create your views here.
 class BasicView(View):
     def get(self, request, name, message, *args, **kwargs):
