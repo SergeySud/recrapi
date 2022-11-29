@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 
 from django.http import HttpResponse
@@ -8,7 +10,7 @@ from django.views import View
 # Create your views here.
 class BasicView(View):
     def get(self, request, name, message, *args, **kwargs):
-        return HttpResponse(f"Basic View:\nHello, {name}! {message}!", content_type="text/plain")
+        return HttpResponse(f"Hello, {name}! {message}!", charset="UTF-8")
 
 
 class AnchoredView(View):
@@ -20,6 +22,6 @@ class AnchoredView(View):
             if name_and_message:
                 name = name_and_message.group(1)
                 message = name_and_message.group(2)
-            return HttpResponse(f"Hello, {name}! {message}!")
+            return HttpResponse(f"Hello, {name}! {message}!", charset="UTF-8")
 
         return HttpResponse(f"nope")
